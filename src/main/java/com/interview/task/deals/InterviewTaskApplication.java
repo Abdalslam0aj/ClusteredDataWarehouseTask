@@ -11,8 +11,8 @@ import io.swagger.v3.oas.annotations.info.Info;
 @SpringBootApplication
 @OpenAPIDefinition(
     info = @Info(
-        title = "Deal micro service API documentation",
-        description = "Deal micro service API documentation",
+        title = "Deals micro service API documentation",
+        description = "Deals micro service API documentation",
         version = "v1",
         contact = @Contact(
             name = "Abdulsalam aljamal",

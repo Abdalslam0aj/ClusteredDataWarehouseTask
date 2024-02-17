@@ -1,12 +1,13 @@
 # ClusteredDataWarehouseTask
 
-This project contains the source code to the Clustered data warehouse Task requested buy progress soft it inserts the receive deals by bloomberg fx.
+This project contains the source code to the Clustered data warehouse Task requested buy progress soft, it inserts the received deals by bloomberg fx.
 
 ## Technologies Used
 - Spring Boot
 - Spring Data JPA
 - Postgres sql
 - Maven
+- Swagger 
 
 ## How to Run
 

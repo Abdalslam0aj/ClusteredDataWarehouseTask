@@ -1,4 +1,4 @@
-package com.interview.task.interview_task;
+package com.interview.task.deals;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
