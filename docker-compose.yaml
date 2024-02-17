@@ -4,6 +4,7 @@ services:
   db:
     image: postgres
     restart: always
+    # maped port as my mac os alredy uses port 5432
     ports:
       - "5433:5432"
     environment:
