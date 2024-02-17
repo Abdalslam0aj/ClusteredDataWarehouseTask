@@ -10,6 +10,7 @@ public class DealMapper {
         dealDetailsDto.setOrderingAmount(dealDetails.getOrderingAmount());
         dealDetailsDto.setOrderingCurrencyISOCode(dealDetails.getOrderingCurrencyISOCode());
         dealDetailsDto.setToCurrencyISOCode(dealDetails.getToCurrencyISOCode());
+        dealDetailsDto.setTimestamp(dealDetails.getTimestamp());
         return dealDetailsDto;
     }
 
@@ -18,6 +19,7 @@ public class DealMapper {
         dealDetails.setOrderingAmount(dealDetailsDto.getOrderingAmount());
         dealDetails.setOrderingCurrencyISOCode(dealDetailsDto.getOrderingCurrencyISOCode());
         dealDetails.setToCurrencyISOCode(dealDetailsDto.getToCurrencyISOCode());
+        dealDetails.setTimestamp(dealDetailsDto.getTimestamp());
         return dealDetails;
     }
     
