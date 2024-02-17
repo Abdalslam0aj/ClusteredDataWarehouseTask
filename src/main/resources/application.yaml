@@ -1,0 +1,10 @@
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: pass@1234
+        url: jdbc:postgresql://localhost:5432/DealsTask
+        username: dealtaskuser
+    jpa:
+        database: POSTGRESQL
+        hibernate:
+            ddl-auto: update
