@@ -1,5 +1,8 @@
 package com.interview.task.deals.entity;
 
+import java.security.Timestamp;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -19,5 +22,7 @@ public class DealDetails {
     private Double orderingAmount;
 
     private String toCurrencyISOCode;
+
+    private LocalDateTime timestamp;
     
 }

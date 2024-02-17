@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -22,6 +24,8 @@ import com.interview.task.deals.dto.ErrorResponseDto;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     
+    protected static final Logger logger = LogManager.getLogger();
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
@@ -41,7 +45,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 request.getDescription(false),
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 exception.getMessage(), LocalDateTime.now());
-
+        logger.error("Internal server error in " + errorResponse.getApiPath(), exception);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
     }
 
@@ -52,6 +56,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.BAD_REQUEST,
                 exception.getMessage(),
                 LocalDateTime.now());
+        logger.error("Deal already exists calling " + errorResponse.getApiPath(), exception);
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
     

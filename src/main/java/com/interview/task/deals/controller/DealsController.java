@@ -1,5 +1,8 @@
 package com.interview.task.deals.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +33,11 @@ import lombok.AllArgsConstructor;
 public class DealsController {
 
     private IDealService dealService;
+    protected static final Logger logger = LogManager.getLogger();
 
     @PostMapping(path = "/create")
     public ResponseEntity<ResponseDto> create(@Valid @RequestBody DealDetailsDto dealDetailsDto) {
+        logger.info("Adding a new Deal with id = " + dealDetailsDto.getId());
         dealService.createDeal(dealDetailsDto);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ResponseDto(HttpStatus.CREATED.value(), DealConstants.DEAL_CREATED));

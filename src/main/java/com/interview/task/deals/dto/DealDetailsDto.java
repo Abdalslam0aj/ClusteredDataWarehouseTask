@@ -1,9 +1,15 @@
 package com.interview.task.deals.dto;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
+import org.hibernate.validator.constraints.Currency;
 import org.hibernate.validator.constraints.Length;
 
+import com.interview.task.deals.constants.DealConstants;
 import com.interview.task.deals.constants.ValidationMessages;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -16,6 +22,7 @@ public class DealDetailsDto {
     private String id;
 
     @NotEmpty(message = ValidationMessages.NOT_EMPTY)
+    //@Currency(message = "", value = {}. DealConstants.CURRENCY)
     @Pattern(regexp = "(^$|[A-Z]{3})", message = ValidationMessages.INVALID_CURRENCY_CODE)
     private String orderingCurrencyISOCode;
 
@@ -25,5 +32,8 @@ public class DealDetailsDto {
     @NotEmpty(message = ValidationMessages.NOT_EMPTY)
     @Pattern(regexp = "(^$|[A-Z]{3})", message = ValidationMessages.INVALID_CURRENCY_CODE)
     private String toCurrencyISOCode;
+
+    @NotNull(message = ValidationMessages.NOT_EMPTY)
+    private LocalDateTime timestamp;
     
 }
