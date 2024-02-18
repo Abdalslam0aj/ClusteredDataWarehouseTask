@@ -61,6 +61,18 @@ public class DealServiceTest {
     }
 
     @Test
+    void validationInvalidCurrency() {
+        var dealDetailsDto = new DealDetailsDto();
+        dealDetailsDto.setId(UUID.randomUUID().toString());
+        dealDetailsDto.setOrderingCurrencyISOCode("USD");
+        dealDetailsDto.setOrderingAmount(23.4);
+        dealDetailsDto.setToCurrencyISOCode("JO");
+        dealDetailsDto.setTimestamp(LocalDateTime.now());
+        Set<ConstraintViolation<DealDetailsDto>> violations = validator.validate(dealDetailsDto);
+        assertFalse(violations.isEmpty());
+    }
+
+    @Test
     void dealCreation() {
         var dealDetailsDto = new DealDetailsDto();
         dealDetailsDto.setId(UUID.randomUUID().toString());
